@@ -1,0 +1,25 @@
+#city-name {
+  font-family: Georgia;
+  color: #000000;
+}
+#city {
+  position: relative;
+  top: 350px;
+  left: 45%;
+}
+#button {
+  border: 3px solid #dddddd;
+  padding: 9px;
+  margin: 6px;
+  position: relative;
+  top: 350px;
+  left: 49%;
+}
+nav li {
+  float: left;
+  life-style: none;
+}
+div {
+  text-align: center;
+  padding: 0;
+}

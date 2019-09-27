@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecast</title>
+    <link href = "style.css" rel ="stylesheet">
+    <script src="index.js" type= "text/javascript"></script>
+    <script src="lodash.js" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+<form class ="weather">
+    <input placeholder="Search here"  id ="city" type ="search">
+    <br>
+    <button id = "button">Search</button>
+</form>
+<script id = "template" type = "text/template">
+
+    <div class = "all_info">
+        <h2 id = 'city-name'><%= city %></h2>
+        <ul>
+            <li>Temprature: <%= temprature %>&deg;C</li>
+            <li>Wind speed: <%= wind %> m/s</li>
+            <li>Clouds: <%=clouds %>%</li>
+            <li>Pressure: <%= pressure %></li>
+            <li>Humidity: <%= humidity %></li>
+
+        </ul>
+    </div>
+</script>
+<div id = "ins"></div>
+</body>
+</html>
