@@ -3,7 +3,7 @@ window.onload = function () {
 
     var btn = document.getElementById('button');
     var city = document.getElementById('city');
-    btn.onclick = function(ev){
+    btn.onsumbit = function(ev){
 
 
         var xhr = new XMLHttpRequest();
@@ -17,12 +17,12 @@ window.onload = function () {
                 return;
             }
             if (xhr.status === 200){
-                const response = JSON.parse(xhr.responseText);
+                var response = JSON.parse(xhr.responseText);
 
 
                 var temp = Math.round((response.main.temp-273)*10)/10,
 
-                    wind_speed = response.wind.speed,
+                    windSpeed = response.wind.speed,
                     humidity = response.main.humidity,
                     clouds = response.clouds.all,
                     pressure = response.main.pressure;
@@ -33,10 +33,10 @@ window.onload = function () {
                 var html = '';
 
 
-                const data ={
+                var data ={
                     city: city.value,
                     temprature: temp,
-                    wind: wind_speed,
+                    wind: windSspeed,
                     clouds: clouds,
                     pressure: pressure,
                     humidity: humidity
@@ -52,7 +52,7 @@ window.onload = function () {
                 var compiled = _.template(template);
                 var html = '';
                 var error = JSON.parse(xhr.responseText).message;
-                const data = {
+                var data = {
                     error:error
                 };
                 html+= compiled(data);
