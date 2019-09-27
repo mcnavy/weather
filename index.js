@@ -1,8 +1,9 @@
 window.onload = function () {
 
 
-    var btn = document.getElementById('button');
+    var btn = document.getElementById('w');
     var city = document.getElementById('city');
+
     btn.onsumbit = function(ev){
 
 
