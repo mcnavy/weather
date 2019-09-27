@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Weather Forecast</title>
     <link href = "style.css" rel ="stylesheet">
-    <script src="index.js" type= "text/javascript"></script>
     <script src="lodash.js" type="text/javascript"></script>
+    <script src="index.js" type= "text/javascript"></script>
+
 
 
 </head>
@@ -28,6 +29,12 @@
             <li>Humidity: <%= humidity %></li>
 
         </ul>
+    </div>
+
+</script>
+<script id ="errorTemplate" type = "text/errorTemplate">
+    <div class ="errorInfo">
+        Error :<%= error %>
     </div>
 </script>
 <div id = "ins"></div>

@@ -48,9 +48,20 @@ window.onload = function () {
                 ev.preventDefault();
             }
             else{
+                var template = document.getElementById('errorTemplate').innerHTML;
+                var compiled = _.template(template);
+                var html = '';
+                var error = JSON.parse(xhr.responseText).message;
+                const data = {
+                    error:error
+                };
+                html+= compiled(data);
+                ins.innerHTML = '';
+                ins.insertAdjacentHTML("beforeend",html);
+                ev.preventDefault();
 
 
-                alert('Error:'+JSON.parse(xhr.responseText).message);
+                //alert('Error:'+JSON.parse(xhr.responseText).message);
             }
         };
         xhr.send();
