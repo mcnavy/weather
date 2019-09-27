@@ -36,7 +36,7 @@ window.onload = function () {
                 var data ={
                     city: city.value,
                     temprature: temp,
-                    wind: windSspeed,
+                    wind: windSpeed,
                     clouds: clouds,
                     pressure: pressure,
                     humidity: humidity
