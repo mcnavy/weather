@@ -1,10 +1,10 @@
 window.onload = function () {
 
 
-    var btn = document.getElementById('button');
+    var btn = document.getElementById('w');
     var city = document.getElementById('city');
 
-    btn.addEventListener('click',function(ev){
+    btn.addEventListener('submit',function(ev){
 
 
         var xhr = new XMLHttpRequest();
