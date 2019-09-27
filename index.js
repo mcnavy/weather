@@ -1,10 +1,10 @@
 window.onload = function () {
 
 
-    var btn = document.getElementById('w');
+    var btn = document.getElementById('button');
     var city = document.getElementById('city');
 
-    btn.onsumbit = function(ev){
+    btn.addEventListener('click',function(ev){
 
 
         var xhr = new XMLHttpRequest();
@@ -67,7 +67,7 @@ window.onload = function () {
         };
         xhr.send();
 
-    };
+    })
 
 
 
