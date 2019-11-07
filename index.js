@@ -10,7 +10,7 @@ window.onload = function () {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=' + city.value +
             '&appid=b88ae6b1211078df478d7544a65d22f9', false);
-
+        console.log(typeof city.value)
         xhr.onreadystatechange = function(){
             if (xhr.readyState !==4 ){
 
