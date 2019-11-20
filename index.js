@@ -1,3 +1,5 @@
+import {convertTemp,apiCall} from "./usedFunctions/functions";
+
 window.onload = function () {
 
 
@@ -7,10 +9,8 @@ window.onload = function () {
     btn.addEventListener('submit',function(ev){
 
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=' + city.value +
-            '&appid=b88ae6b1211078df478d7544a65d22f9', false);
-        console.log(typeof city.value)
+        var xhr = apiCall(city.value)
+
         xhr.onreadystatechange = function(){
             if (xhr.readyState !==4 ){
 
@@ -21,7 +21,7 @@ window.onload = function () {
                 var response = JSON.parse(xhr.responseText);
 
 
-                var temp = Math.round((response.main.temp-273)*10)/10,
+                var temp = convertTemp(response.main.temp),//Math.round((response.main.temp-273)*10)/10,
 
                     windSpeed = response.wind.speed,
                     humidity = response.main.humidity,
