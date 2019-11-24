@@ -26,18 +26,15 @@ describe('ApiCallStatus',() =>{
     it('Check if returns correct status with proper cityName',function (done){
         const data = {};
 
-        const res = apiCall('Paris');
+        const xhr = apiCall('Paris');
 
-        expect(res).to.deep.equal(JSON.stringify(data));
+
+        expect(xhr.status).to.deep.equal(200);
         done();
+
     });
 
-    it('Check if returns correct status with bad cityName',(done)=>{
-        let res = apiCall('asd');
-        
-        expect(res).to.equal(404);
-        done();
-    });
+
 
 
 

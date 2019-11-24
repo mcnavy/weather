@@ -7,18 +7,6 @@ export function apiCall(cityName) {
 
     xhr.setRequestHeader('X-Requested-With', 'XML');
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                getCorrectData(xhr);
-            } else {
-                getErrorData(xhr);
-            }
-        }
-        
-    };
-    xhr.send();
-
     return xhr
 
 }
@@ -55,7 +43,7 @@ export function getCorrectData(xhr) {
     html+= compiled(data);
     ins.innerHTML = '';
     ins.insertAdjacentHTML("beforeend",html);
-    ev.preventDefault();
+
 
     return response;
 }
@@ -72,7 +60,7 @@ export function getErrorData(xhr) {
     html+= compiled(data);
     ins.innerHTML = '';
     ins.insertAdjacentHTML("beforeend",html);
-    ev.preventDefault();
+
 
 
     //alert('Error:'+JSON.parse(xhr.responseText).message);

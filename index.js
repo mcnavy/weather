@@ -1,4 +1,4 @@
-import {convertTemp,apiCall} from "./usedFunctions/functions";
+import {apiCall, getCorrectData, getErrorData} from "./usedFunctions/functions";
 
 window.onload = function () {
 
@@ -8,11 +8,20 @@ window.onload = function () {
 
     btn.addEventListener('submit',function(ev){
 
-
         var xhr = apiCall(city.value)
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    getCorrectData(xhr);
+                } else {
+                    getErrorData(xhr);
+                }
+            }
 
+        };
+        xhr.send();
         ev.preventDefault()
-        // xhr.send();
+
 
     })
 
