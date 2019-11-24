@@ -1,28 +1,43 @@
-import {convertTemp,apiCall} from "../usedFunctions/functions";
+import {convertTemp,apiCall,getErrorData,getCorrectData} from "../usedFunctions/functions";
 
 
-const chai = require('chai');
 const sinon = require('sinon');
+const mocha = require('mocha');
+import chai, { expect } from "chai";
 
-const expect = chai.expect;
-const fakeTrue = sinon.stub().returns(200)
-const fakeFalse = sinon.stub().returns(404)
-
+import { JSDOM } from 'jsdom';
+const { document } = (new JSDOM('')).window;
+global.document = document;
 
 describe('ApiCallStatus',() =>{
-    it('Check if returns correct status with proper cityName',(done)=>{
-        let resp =  apiCall('Paris')
-        done()
+    beforeEach(function() {
+        this.xhr = sinon.useFakeXMLHttpRequest();
 
-       return Promise.resolve(resp).to.eventually.have.status(fakeTrue);
+        // this.requests;
+        this.xhr.onCreate = function(xhr) {
+            this.request = xhr;
+        }.bind(this);
+    });
 
-    })
+    afterEach(function() {
+        this.xhr.restore();
+    });
+
+    it('Check if returns correct status with proper cityName',function (done){
+        const data = {};
+
+        const res = apiCall('Paris');
+
+        expect(res).to.deep.equal(JSON.stringify(data));
+        done();
+    });
+
     it('Check if returns correct status with bad cityName',(done)=>{
-        let resp = apiCall('asd')
-        done()
-        let status = resp.status;
-        expect(status).to.equal(fakeFalse)
-    })
+        let res = apiCall('asd');
+        
+        expect(res).to.equal(404);
+        done();
+    });
 
 
 
